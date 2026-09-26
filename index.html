@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Pioneers MicroGigs</title>
+    <style>
+        :root {
+            --primary-color: #6a1b9a;
+            --primary-dark: #4a148c;
+            --accent-color: #ffb300;
+            --bg-gradient: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 550px;
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.15);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* تصميم قسم اختيار اللغات */
+        .lang-switcher {
+            margin-bottom: 25px;
+        }
+        .lang-switcher button {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 6px 14px;
+            margin: 0 4px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .lang-switcher button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* تصميم مكان الشعار أو الصورة */
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 15px rgba(106, 27, 154, 0.3);
+        }
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            filter: brightness(0) invert(1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        p {
+            color: var(--text-light);
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #5d4037;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 0;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 12px rgba(106, 27, 154, 0.3);
+            transition: background 0.3s, transform 0.2s;
+            box-sizing: border-box;
+        }
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- أزرار تغيير اللغات الثلاث -->
+        <div class="lang-switcher">
+            <button onclick="changeLanguage('ar')">العربية</button>
+            <button onclick="changeLanguage('fr')">Français</button>
+            <button onclick="changeLanguage('en')">English</button>
+        </div>
+
+        <!-- دائرة الشعار (يمكنك استبدالها برابط صورة حقيقية لاحقاً) -->
+        <div class="logo-container">
+            <svg width="45" height="45" viewBox="0 0 24 24" fill="white">
+                <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/>
+            </svg>
+        </div>
+
+        <h1 id="app-title">Pioneers MicroGigs</h1>
+        <div class="badge" id="app-badge">قريباً على Pi Network</div>
+        <p id="app-desc">منصتك اللامركزية لربط المستقلين وأصحاب الأعمال وتقديم الخدمات المصغرة بأمان وتداول رقمي سلس.</p>
+        
+        <a href="#" class="btn" id="btn-text">تسجيل الدخول بـ Pi</a>
+    </div>
+
+    <script>
+        const translations = {
+            ar: {
+                dir: "rtl",
+                title: "Pioneers MicroGigs",
+                badge: "قريباً على Pi Network",
+                desc: "منصتك اللامركزية لربط المستقلين وأصحاب الأعمال وتقديم الخدمات المصغرة بأمان وتداول رقمي سلس.",
+                btn: "تسجيل الدخول بـ Pi"
+            },
+            fr: {
+                dir: "ltr",
+                title: "Pioneers MicroGigs",
+                badge: "Bientôt sur Pi Network",
+                desc: "Votre plateforme décentralisée pour connecter indépendants et clients afin d'échanger des services numériques en toute sécurité.",
+                btn: "Connexion avec Pi"
+            },
+            en: {
+                dir: "ltr",
+                title: "Pioneers MicroGigs",
+                badge: "Coming Soon on Pi Network",
+                desc: "Your decentralized platform connecting freelancers and clients to trade digital services securely and smoothly.",
+                btn: "Sign in with Pi"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('html-root').setAttribute('dir', t.dir);
+            document.getElementById('html-root').setAttribute('lang', lang);
+            document.getElementById('app-title').innerText = t.title;
+            document.getElementById('app-badge').innerText = t.badge;
+            document.getElementById('app-desc').innerText = t.desc;
+            document.getElementById('btn-text').innerText = t.btn;
+        }
+    </script>
+
+</body>
+</html>
